@@ -1,0 +1,7 @@
+project = "kapelal-203808"
+bucket = "kapelal-203808"
+region = "europe-west1"
+name = "kapelal-dns"
+dns_name = "kapelal.io."
+wildcard_dns_hostnum = "100"
+ip_name = "kapelal-ip"

@@ -1,0 +1,10 @@
+project = "kapelal-203808"
+bucket = "kapelal-203808"
+region = "europe-west1"
+zone = "europe-west1-b"
+min_master_version = "1.10.4-gke.2"
+node_version = "1.10.4-gke.2"
+default_node_count = 1
+default_machine_type = "n1-standard-1"
+default_disk_size_gb = 20
+preemptible = true
