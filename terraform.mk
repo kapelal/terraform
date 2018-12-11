@@ -7,16 +7,16 @@ endif
 VAR_FILE_OPTIONS       = -var-file vars.tfvars
 BACKEND_CONFIG_OPTIONS = -backend-config config.backend
 
-DOCKER_RUN = docker run
-DOCKER_RUN += --rm
-DOCKER_RUN += -u $$(id -u):$$(id -g)
-DOCKER_RUN += -v $(CURDIR):/repo
-DOCKER_RUN += -v $(CREDENTIALS):/etc/credentials.json
-DOCKER_RUN += -w /repo
-DOCKER_RUN += -e GOOGLE_APPLICATION_CREDENTIALS=/etc/credentials.json
+DOCKER_RUN_OPTION += --rm
+DOCKER_RUN_OPTION += -u $$(id -u):$$(id -g)
+DOCKER_RUN_OPTION += -v $(CURDIR):/repo
+DOCKER_RUN_OPTION += -v $(CREDENTIALS):/etc/credentials.json
+DOCKER_RUN_OPTION += -w /repo
+DOCKER_RUN_OPTION += -e GOOGLE_APPLICATION_CREDENTIALS=/etc/credentials.json
 
 TERRAFORM = @
-TERRAFORM += $(DOCKER_RUN)
+TERRAFORM += docker run
+TERRAFORM += $(DOCKER_RUN_OPTION)
 TERRAFORM += $(TERRAFORM_IMAGE)
 
 default: plan
